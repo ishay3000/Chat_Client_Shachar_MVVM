@@ -8,12 +8,11 @@ namespace Chat_Client.Messages
 {
     class UnicastMessage : TextMessage
     {
-
-        public string Receiver { get; set; }
-
         public UnicastMessage(string content, string receiver) : base(EMessageTypes.UNICAST, content)
         {
             Receiver = receiver;
         }
+
+        public string Receiver { get; set; }
     }
 }

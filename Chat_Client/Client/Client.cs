@@ -55,7 +55,19 @@ namespace Chat_Client.Client
 
             while (_isReading)
             {
-                var response = await ReadAsyncTask();
+                string response;
+                try
+                {
+                    response = await ReadAsyncTask();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    MessageBox.Show("Couldn't reach server - Stopped listening for messages...", "Server down",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    _isReading = false;
+                    continue;
+                }
                 dynamic res;
                 try
                 {

@@ -13,13 +13,14 @@
         <ListBox ItemsSource="{Binding Path=TextMessages, Mode=TwoWay}" Background="AntiqueWhite" Height="189" Margin="0,46,0,0" VerticalAlignment="Top" Width="500">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="messages:TextMessage">
-                    <Border Padding="5" Background="Transparent" HorizontalAlignment="{Binding Path=Alignment, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                    <Border Padding="5" Background="Transparent" HorizontalAlignment="Right">
                         <Grid HorizontalAlignment="Right">
 
                             <!-- Chat message container -->
-                            <Grid Margin="25 0 0 0" HorizontalAlignment="{Binding Path=Alignment, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                            <Grid Margin="25 0 25 0" HorizontalAlignment="Right">
 
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
@@ -40,6 +41,8 @@
 
                                 </Border>
 
+                                <Label Content="{Binding Path=Sender, Mode=OneWay}" Foreground="Red" Grid.Row="1" Margin="10,0,0,0"></Label>
+
                                 <!-- Chat bubble anchor -->
                                 <Path Grid.Row="1" 
                       Stroke="Black"
@@ -51,7 +54,7 @@
                       Fill="Aquamarine" />
 
                                 <TextBlock Grid.Row="2"
-                           Text="11:44am"
+                           Text="{Binding Path=Time, Mode=TwoWay}"
                            Foreground="Gray"
                            HorizontalAlignment="Right"
                            FontSize="13"

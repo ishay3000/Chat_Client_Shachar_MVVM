@@ -10,6 +10,13 @@ namespace Chat_Client.Messages
     public class TextMessage : BaseMessage
     {
         public string Content { get; set; }
+        private string _sender;
+
+        public string Sender
+        {
+            get => MyMessage ? "You said" : (MessageType == EMessageTypes.BROADCAST ? "Broadcast by " + _sender : _sender);
+            set => _sender = value;
+        }
 
         [JsonIgnore]
         public bool MyMessage { get; set; } = false;
