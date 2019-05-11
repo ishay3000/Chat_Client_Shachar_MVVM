@@ -34,20 +34,22 @@ namespace Chat_Client.Client
             //Start();
         }
 
-        public async Task<bool> Start()
+        public async Task Start()
         {
-            try
-            {
-                await _client.ConnectAsync(Ip, Port);
-                _networkStream = _client.GetStream();
+            await _client.ConnectAsync(Ip, Port);
+            _networkStream = _client.GetStream();
+            //try
+            //{
+            //    await _client.ConnectAsync(Ip, Port);
+            //    _networkStream = _client.GetStream();
 
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Could not connect");
-                return false;
-            }
+            //    return true;
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show("Could not connect");
+            //    return false;
+            //}
         }
 
         public async Task ReadingThread()

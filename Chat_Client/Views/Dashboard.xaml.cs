@@ -43,7 +43,14 @@ namespace Chat_Client.Views
         private void InitClient()
         {
             // TODO lookup how to terminate app from an async task
-            Task.Run(async () => { await Client.Client.Instance.Start(); });
+            Task.Run(async () => { await Client.Client.Instance.Start(); }).ContinueWith(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    MessageBox.Show("Couldn't connect to server. Shutting down...", "Server unreachable", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Application.Current.Shutdown(-1);
+                }
+            }).Wait();
         }
     }
 }
