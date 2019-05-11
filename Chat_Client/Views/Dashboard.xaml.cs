@@ -30,8 +30,8 @@ namespace Chat_Client.Views
         /// </summary>
         private void Init()
         {
-           InitFrame();
-           InitClient();
+            InitFrame();
+            InitClient();
         }
 
         private void InitFrame()
@@ -43,7 +43,7 @@ namespace Chat_Client.Views
         private void InitClient()
         {
             // TODO lookup how to terminate app from an async task
-            Task.Factory.StartNew(async () => { await Client.Client.Instance.Start(); });
+            Task.Run(async () => { await Client.Client.Instance.Start(); });
         }
     }
 }

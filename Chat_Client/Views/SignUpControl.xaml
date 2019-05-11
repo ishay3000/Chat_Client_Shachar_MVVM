@@ -8,6 +8,7 @@
         xmlns:mdc="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        FocusManager.FocusedElement="{Binding ElementName=TbUsername}"
         FontSize="15" Height="500" Width="600" Background="#EFF47E">
 
     <Grid>
@@ -16,15 +17,19 @@
                 <StackPanel VerticalAlignment="Center">
                     <Label Content="Sign Up" Foreground="#FFCD6B" HorizontalAlignment="Center" FontSize="25"/>
 
-                    <TextBox Name="TbUsername" VerticalAlignment="Center" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Username" Margin="10,10,10,0"/>
-                    <PasswordBox Name="TbPassword" VerticalAlignment="Center" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}" materialDesign:HintAssist.Hint="Password" Margin="10,10,10,0"/>
+                    <TextBox Name="TbUsername" Text="{Binding Path=Username, Mode=TwoWay}" VerticalAlignment="Center" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Username" Margin="10,10,10,0"/>
+                    <TextBox Name="TbPassword" Text="{Binding Path=Password, Mode=TwoWay}" VerticalAlignment="Center" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Password" Margin="10,10,10,0"/>
                     <!-- TODO add button command -->
-                    <Button Name="BtnRegister" Margin="100,10,100,0" Content="Sign Up" Height="50"/> 
-   
-                    <Label Content="I already have an account !" HorizontalContentAlignment="Center"></Label>
+                    <Button Name="BtnRegister" Command="{Binding Path=RegisterCommand, Mode=TwoWay}" Margin="100,10,100,0" Content="Sign Up" Height="50"/>
+
+                    <Label Content="I already have an account" HorizontalContentAlignment="Center">
+                        <Label.InputBindings>
+                            <MouseBinding MouseAction="LeftClick" Command="{Binding Path=TransferLoginCommand, Mode=TwoWay}"></MouseBinding>
+                        </Label.InputBindings>
+                    </Label>
                 </StackPanel>
 
-                
+
             </Grid>
         </Border>
     </Grid>

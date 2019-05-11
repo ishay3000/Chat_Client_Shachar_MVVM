@@ -45,6 +45,7 @@ namespace Chat_Client.Client
             }
             catch (Exception e)
             {
+                MessageBox.Show("Could not connect");
                 return false;
             }
         }

@@ -7,6 +7,7 @@
         xmlns:mdc="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        FocusManager.FocusedElement="{Binding ElementName=TbUsername}"
         FontSize="15" Height="500" Width="600" Background="#EFF47E">
 
     <Grid>
@@ -20,7 +21,11 @@
                     <TextBox Name="TbPassword" Text="{Binding Path=Password, Mode=TwoWay}" VerticalAlignment="Center" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" materialDesign:HintAssist.Hint="Password" Margin="10,10,10,0"/>
                     <Button Name="BtnSignIn" Command="{Binding Path=LoginCommand, Mode=TwoWay}" Margin="100,10,100,0" Content="Sign In" Height="50"/>
 
-                    <Label Content="I don't have an account. Register?" HorizontalContentAlignment="Center"></Label>
+                    <Label Content="I don't have an account. Register now" HorizontalContentAlignment="Center">
+                        <Label.InputBindings>
+                            <MouseBinding MouseAction="LeftClick" Command="{Binding Path=TransferSignUpCommand, Mode=TwoWay}"></MouseBinding>
+                        </Label.InputBindings>
+                    </Label>
                 </StackPanel>
             </Grid>
         </Border>
