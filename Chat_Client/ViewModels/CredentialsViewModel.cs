@@ -69,7 +69,7 @@ namespace Chat_Client.ViewModels
             {
                 MessageBox.Show("Registered successfully!", "Registration", MessageBoxButton.OK, MessageBoxImage.Information);
                 FrameManager.MovePage(ControlsTitles.Login);
-                new Thread(async () => await Client.Client.Instance.ReadingThread()).Start();
+                //new Thread(async () => await Client.Client.Instance.ReadingThread()).Start();
             }
 
             else
