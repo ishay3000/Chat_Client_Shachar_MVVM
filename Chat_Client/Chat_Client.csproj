@@ -88,14 +88,8 @@
     <Compile Include="ViewModels\ChatViewModel.cs" />
     <Compile Include="ViewModels\CredentialsViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
-    <Compile Include="Views\BubbleMessageTest.xaml.cs">
-      <DependentUpon>BubbleMessageTest.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ChatControl.xaml.cs">
       <DependentUpon>ChatControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ChatWindow.xaml.cs">
-      <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Client\Client.cs" />
     <Compile Include="Views\Dashboard.xaml.cs">
@@ -103,9 +97,6 @@
     </Compile>
     <Compile Include="Views\LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Messages\AuthMessage.cs" />
     <Compile Include="Messages\BaseMessage.cs" />
@@ -116,15 +107,7 @@
     <Compile Include="Views\SignUpControl.xaml.cs">
       <DependentUpon>SignUpControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\BubbleMessageTest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ChatControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ChatWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,20 +119,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\SignUpControl.xaml">

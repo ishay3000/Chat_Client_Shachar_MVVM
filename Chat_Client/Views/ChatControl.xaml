@@ -10,14 +10,14 @@
              d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
         <Label Content="Displaying messages for..." HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="41"  VerticalAlignment="Top" Width="260"/>
-        <ListBox ItemsSource="{Binding Path=TextMessages, Mode=TwoWay}" HorizontalAlignment="Left" Background="AntiqueWhite" Height="189" Margin="0,46,0,0" VerticalAlignment="Top" Width="500">
+        <ListBox ItemsSource="{Binding Path=TextMessages, Mode=TwoWay}" Background="AntiqueWhite" Height="189" Margin="0,46,0,0" VerticalAlignment="Top" Width="500">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="messages:TextMessage">
-                    <Border Padding="5" Background="Transparent" HorizontalAlignment="{Binding Path=Alignment, Mode=OneWay}">
-                        <Grid>
+                    <Border Padding="5" Background="Transparent" HorizontalAlignment="{Binding Path=Alignment, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                        <Grid HorizontalAlignment="Right">
 
                             <!-- Chat message container -->
-                            <Grid Margin="25 0 0 0" HorizontalAlignment="{Binding Path=Alignment, Mode=OneWay}">
+                            <Grid Margin="25 0 0 0" HorizontalAlignment="{Binding Path=Alignment, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
@@ -35,7 +35,7 @@
                                     <TextBlock VerticalAlignment="Center"
                            TextWrapping="Wrap"
                            Foreground="DarkBlue"
-                           Text="{Binding Path=Content, Mode=OneWay}"
+                           Text="{Binding Path=Content, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                            />
 
                                 </Border>
