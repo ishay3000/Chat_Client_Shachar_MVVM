@@ -144,6 +144,7 @@ namespace Chat_Client.Client
 
             else
             {
+                MessageBox.Show(result["Cause"]?.ToString(), "Registration error", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return false;
             }
         }

@@ -51,7 +51,7 @@ namespace Chat_Client.ViewModels
             bool hasLogged = await Client.Client.Instance.SendCredentialsAsyncTask(new AuthMessage(EMessageTypes.LOGIN, Username, Password));
             if (hasLogged)
             {
-                MessageBox.Show("Logged in!", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Logged in! moving to the chat page...", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
                 FrameManager.MovePage(ControlsTitles.Chat);
                 new Thread(async () => await Client.Client.Instance.ReadingThread()).Start();
             }
@@ -67,9 +67,8 @@ namespace Chat_Client.ViewModels
             bool hasRegistered = await Client.Client.Instance.SendCredentialsAsyncTask(new AuthMessage(EMessageTypes.REGISTER, Username, Password));
             if (hasRegistered)
             {
-                MessageBox.Show("Registered successfully!", "Registration", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Registered successfully! moving to the login page...", "Registration", MessageBoxButton.OK, MessageBoxImage.Information);
                 FrameManager.MovePage(ControlsTitles.Login);
-                //new Thread(async () => await Client.Client.Instance.ReadingThread()).Start();
             }
 
             else
